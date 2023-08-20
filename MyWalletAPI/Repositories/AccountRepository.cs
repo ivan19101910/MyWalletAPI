@@ -24,6 +24,8 @@ namespace MyWalletAPI.Repositories
                 .Where(x => x.Id == id)
                 .Include(x => x.Transactions)
                 .ThenInclude(x => x.AuthorizedAccount)
+                .Include(x => x.Transactions)
+                .ThenInclude(x => x.Icon)
                 .Include(x => x.PointsStatistics)
                 .FirstOrDefaultAsync();
 
